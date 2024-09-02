@@ -1,0 +1,20 @@
+"use strict";
+exports.__esModule = true;
+exports.router = void 0;
+var express_1 = require("express");
+var services_1 = require("../services/services");
+exports.router = (0, express_1.Router)();
+exports.router.all('*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+exports.router.get("/login", services_1.testpasser.getlogin);
+exports.router.post("/signup", services_1.testpasser.signup);
+exports.router.get('/verifylogin', services_1.testpasser.verifylogin);
+exports.router.get("/homepage", services_1.testpasser.getshow);
+exports.router.get('/history', services_1.testpasser.gethistory);
+exports.router["delete"]('/clearhistory', services_1.testpasser.deletehistory);
+exports.router.get('/next', services_1.testpasser.next);
+exports.router.get('/verifysignup', services_1.testpasser.verifysignup);
